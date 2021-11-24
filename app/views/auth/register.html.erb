@@ -1,0 +1,50 @@
+<html>
+<body>
+
+<div class="center">
+  <h1> Make an account </h1>
+  <br>
+  <%= form_with do |form| %>
+    <%= form.label :email, "Email:" %>
+    <%= form.text_field :email %>
+    <br>
+    <br>
+    <%= form.label :password, "Password:" %>
+    <%= form.text_field :password %>
+    <br>
+    <br>
+    <%= form.submit "Create account" %>
+  <% end %>
+
+  <a href="/auth/login">Already have an account? Log in</a>
+</div>
+
+
+</body>
+</html>
+
+<style>
+
+    label {
+        color: white;
+    }
+
+    .center {
+        border-radius: 15px;
+        padding: 50px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #121212;
+        text-align: center;
+    }
+
+    h1 {
+        color: #CCCCCC;
+    }
+
+    body {
+        background-color: cornflowerblue;
+    }
+</style>
