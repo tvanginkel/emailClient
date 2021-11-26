@@ -1,0 +1,59 @@
+<html>
+<head>
+  <%= stylesheet_link_tag "application.css" %>
+</head>
+<body>
+<%= render "sidebar" %>
+<h1> Inbox </h1>
+
+<div class="tab">
+  <% @mailboxes.each do |mailbox| %>
+    <button class="tablinks" onclick="openCity(event, 'London')" id="default-open">
+      <%= mailbox.name %></button>
+  <% end %>
+  <button id="add">+add</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<%= form_with do |form| %>
+  <%= form.label :name, "Inbox name:" %>
+  <%= form.text_field :name %>
+  <br>
+  <br>
+  <%= form.submit "Create inbox" %>
+<% end %>
+
+<script>
+    //TODO: Add script to file in javascript folder
+    document.getElementById("default-open").click()
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }</script>
+</body>
+</html>
+

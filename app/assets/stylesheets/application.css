@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+p {
+    color: #E7E7E7;
+}
+
+h1 {
+    color: #E7E7E7;
+
+}

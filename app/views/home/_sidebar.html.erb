@@ -6,17 +6,28 @@
           font-family: "Lato", sans-serif;
       }
 
+      @media screen and (max-height: 450px) {
+          .sidenav {
+              padding-top: 15px;
+          }
+
+          .sidenav a {
+              font-size: 18px;
+          }
+      }
+
       .sidenav {
+          display: table-cell;
           height: 100%;
           width: 160px;
           position: fixed;
           z-index: 1;
           top: 0;
           left: 0;
-          background-color: #111;
+          background-color: #121212;
           overflow-x: visible;
           padding-top: 20px;
-
+          vertical-align: bottom;
       }
 
       .sidenav a {
@@ -31,22 +42,16 @@
           color: #f1f1f1;
       }
 
-      @media screen and (max-height: 450px) {
-          .sidenav {
-              padding-top: 15px;
-          }
-
-          .sidenav a {
-              font-size: 18px;
-          }
-      }
-
-      #bott {
+      .bott {
           position: absolute;
           bottom: 0;
+          width: 160px;
           padding-bottom: 30px;
       }
 
+      hr {
+          color: white;
+      }
 
   </style>
 
@@ -54,11 +59,14 @@
 <body>
 
 <div class="sidenav">
-  <a href="#about">Inbox</a>
-  <a href="#services">Send email</a>
-  <a href="#clients">Settings</a>
-  <a href="#contact">Contact</a>
-  <a id="bott" href="/auth/logout">Log out</a>
+  <a href="/home/inbox">Inbox</a>
+  <a href="/home/index">Send email</a>
+  <a href="/home/index">Profile</a>
+  <a href="/home/index">Contact</a>
+  <div class="bott">
+    <hr>
+    <a href="/auth/logout">Log out</a>
+  </div>
 </div>
 
 
