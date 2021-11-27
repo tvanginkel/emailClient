@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user = User.find_by(id: session[:user_id])
-    puts @current_user
-    @current_user
   end
 
   def logged_in?

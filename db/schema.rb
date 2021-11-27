@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_11_26_175116) do
 
   create_table "emails", force: :cascade do |t|
-    t.string "from"
-    t.string "to"
-    t.string "content"
-    t.string "subject"
-    t.integer "mailbox_id"
+    t.string "from", null: false
+    t.string "to", null: false
+    t.string "content", default: ""
+    t.string "subject", default: "No subject", null: false
+    t.integer "mail_box_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_11_26_175116) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_mail_boxes_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,5 +38,6 @@ ActiveRecord::Schema.define(version: 2021_11_26_175116) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "emails", "mail_boxes"
   add_foreign_key "mail_boxes", "users"
 end

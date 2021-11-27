@@ -1,0 +1,28 @@
+<html>
+<body>
+<%= render "sidebar" %>
+<h1> Create new email </h1>
+<%= form_with do |form| %>
+  <%= form.label :to, "to:" %>
+  <%= form.text_field :to %>
+  <br>
+  <%= form.label :subject, "Subject:" %>
+  <%= form.text_field :subject %>
+  <br>
+  <%= form.label :content, "Content:" %>
+  <%= form.text_field :content %>
+  <br>
+  <br>
+  <br>
+  <%= form.submit "Send email" %>
+<% end %>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #242424;
+        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+        padding-left: 160px;
+    }
+</style>

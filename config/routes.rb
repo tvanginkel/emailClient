@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get 'auth/logout'
   get 'home/inbox'
   post 'home/inbox', to: 'home#create_inbox'
+  get 'home/new_email'
+  post 'home/new_email', to: 'home#create_email'
 end

@@ -10,7 +10,6 @@ class CreateMailBoxes < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :mail_boxes, :name, unique: true
     add_foreign_key :mail_boxes, :users
   end
 end
