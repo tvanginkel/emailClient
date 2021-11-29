@@ -24,4 +24,5 @@ Rails.application.routes.draw do
 
   # Profile routes
   get 'profile/profile'
+  post 'profile/profile', to: 'profile#change_password'
 end
