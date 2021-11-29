@@ -5,6 +5,9 @@ class AuthController < ApplicationController
 
   def login; end
 
+  def register; end
+
+  # Log out from an existing account and delete the session data
   def logout
     # Delete all session data to prevent unauthorized access to pages
     reset_session
@@ -12,6 +15,7 @@ class AuthController < ApplicationController
     redirect_to '/auth/login'
   end
 
+  # Login to and existing account using and email and a password
   def login_account
     # Get params from post request
     @email = params[:email]
@@ -19,8 +23,6 @@ class AuthController < ApplicationController
 
     # Find the user in the db
     @user = User.find_by_email(@email)
-
-    # TODO: add error message to UI
 
     # Check if the user was found
     if @user.nil?
@@ -39,8 +41,7 @@ class AuthController < ApplicationController
     redirect_to root_path
   end
 
-  def register; end
-
+  # Create an account using and email and a password
   def create_account
     # Get params from post request
     @email = params[:email]
@@ -57,13 +58,12 @@ class AuthController < ApplicationController
       flash[:error] = 'There was an error creating the account'
       return redirect_back(fallback_location: root_path)
     end
+
     # Save user_id to session
     session[:user_id] = @user.id
 
+    # Redirect to home page
     redirect_to root_path
 
   end
-
-  private
-
 end

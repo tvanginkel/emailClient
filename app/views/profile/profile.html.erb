@@ -1,0 +1,41 @@
+<html>
+<body>
+<%= render 'partials/sidebar' %>
+
+<h1> Profile </h1>
+
+<%= form_with do |form| %>
+  <div class="card">
+
+    <div class="card-body">
+      <p>Change the password used to login into your account</p>
+      <div class="mb-3">
+        <%= form.text_field :content, { class: "form-control", placeholder: "New password" } %>
+      </div>
+
+      <%= form.submit "Change password", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #242424;
+        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+        padding-left: 160px;
+    }
+
+    label {
+        color: white;
+    }
+
+    .card {
+        background-color: #242424;
+        border-color: #121212;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+</style>

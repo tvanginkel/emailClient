@@ -5,4 +5,5 @@ module ApplicationHelper
   def get_emails(mail_box)
     @emails = Email.where(mail_box_id: mail_box.id)
   end
+
 end

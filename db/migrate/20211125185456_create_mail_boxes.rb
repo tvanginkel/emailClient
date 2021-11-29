@@ -4,7 +4,7 @@
 class CreateMailBoxes < ActiveRecord::Migration[6.1]
   def change
     create_table :mail_boxes do |t|
-      t.string :name, null: false, default: ''
+      t.string :name, null: false, default: 'no_name'
       t.integer :user_id, null: false
 
       t.timestamps

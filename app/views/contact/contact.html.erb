@@ -1,0 +1,35 @@
+<html>
+<body>
+<%= render 'partials/sidebar' %>
+<h1> Contact </h1>
+<%= form_with do |form| %>
+  <div class="card">
+    <div class="card-body">
+
+      <div class="mb-3">
+        <%= form.text_field :content, { class: "form-control", placeholder: "Tell us what's on your mind" } %>
+      </div>
+
+      <%= form.submit "Send", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #242424;
+        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+        padding-left: 160px;
+    }
+
+    label {
+        color: white;
+    }
+
+    .card {
+        background-color: #242424;
+    }
+
+</style>
