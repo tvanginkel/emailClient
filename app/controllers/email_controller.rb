@@ -90,4 +90,47 @@ class EmailController < ApplicationController
     # Refresh the page
     redirect_back(fallback_location: root_path)
   end
+
+  def delete_email
+    @id = params[:id]
+    puts "ID number#{@id}"
+
+    # Get the email
+    @email = Email.find_by(id: @id)
+
+    # Check if the email exists
+    if @email.nil?
+      flash[:error] = 'Email not found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Get the mailbox the email belongs to
+    @mailbox = MailBox.find_by(id: @email.mail_box_id)
+
+    # Check if the mailbox was found
+    if @mailbox.nil?
+      flash[:error] = 'Mailbox not found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Get the user that the mailbox belongs to
+    @user = User.find_by(id: @mailbox.user_id)
+
+    # Check if the user exists
+    if @user.nil?
+      flash[:error] = 'User not found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Check if the current user is the same as the user who's email belongs to
+    if @user.id != current_user.id
+      flash[:error] = 'You don\'t have access to this email'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # As we know de email exists and it belongs to the current user, we can now destroy it
+    Email.delete(@id)
+    flash[:notice] = 'Email deleted successfully'
+    redirect_to '/email/inbox'
+  end
 end
