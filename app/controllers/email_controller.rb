@@ -1,4 +1,6 @@
 class EmailController < ApplicationController
+  before_action :require_login
+
   def new_email; end
 
   # Create and email and store it to the db. The way emails are managed in the app is:
@@ -12,6 +14,11 @@ class EmailController < ApplicationController
     @to = params[:to]
     @subject = params[:subject]
     @content = params[:content]
+
+    puts "TO: #{@to}, SUBJECT: #{@subject}, CONTENT:#{@content}"
+
+    # Get the user the email is intended for
+    @user_to = User.find_by_email(@to)
 
     # Check if the user the email is being sent to exists
     if @user_to.nil?
@@ -35,9 +42,6 @@ class EmailController < ApplicationController
       return redirect_back(fallback_location: root_path)
     end
 
-    # Get the user the email is intended for
-    @user_to = User.find_by_email(@to)
-
     # Get the 'received' mailbox of the user_to
     @mailbox_to = MailBox.where(name: 'Received', user_id: @user_to.id).first
 
@@ -58,7 +62,7 @@ class EmailController < ApplicationController
     flash[:notice] = 'Email sent'
 
     # Redirect to the inbox page
-    redirect_to '/home/inbox'
+    redirect_to '/email/inbox'
   end
 
   # Get all the mailboxes the user has

@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  before_action :require_login
+
   def profile; end
 
   # Updates the password of the current user

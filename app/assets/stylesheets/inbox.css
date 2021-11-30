@@ -1,8 +1,4 @@
 
-#add {
-    color: red;
-}
-
 body {
     background-color: #242424;
     /* Add this padding so the content of the page does not overlap with the sidebar partial*/
@@ -42,12 +38,61 @@ label {
     background-color: #ccc;
 }
 
+.form-control {
+    margin-top: 40px;
+}
+
+.vl {
+    border-left: 1px solid #000;
+    height: 30px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+/* Style the modal */
+
+.modal {
+
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    text-align: center;
+}
+
+.modal .modal-content {
+    background-color: #121212;
+    padding: 20px;
+}
+
+.btn-close {
+
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+/* Style the emails */
 .email {
+    height: 50px;
     border-radius: 5px;
     background-color: white;
     margin: 10px;
     padding: 10px;
-    overflow: hidden;
+    overflow: visible;
+    position: relative;
+}
+
+.email p {
+    float: left;
+}
+
+.email h1 {
+    float: right;
 }
 
 .email p {
@@ -58,4 +103,50 @@ label {
 .tabcontent {
     display: none;
     border-top: none;
+}
+
+/* Style the dropdown menu */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    display: inline-block;
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }
