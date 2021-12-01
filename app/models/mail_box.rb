@@ -4,4 +4,5 @@
 class MailBox < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :emails
+  validates :name, presence: true
 end

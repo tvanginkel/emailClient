@@ -44,7 +44,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <button class="btn-close btn-close-white" aria-label="Close"></button>
-    <%= form_with do |form| %>
+    <%= form_with :url => '/email/inbox', :method => :post do |form| %>
       <%= form.text_field :name, class: "form-control", placeholder: "Inbox name" %>
       <br>
       <%= form.submit "Create inbox", class: "btn btn-primary" %>

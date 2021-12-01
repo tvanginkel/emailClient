@@ -4,4 +4,5 @@
 class User < ApplicationRecord
   has_many :mail_boxes
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
+  validates :password, presence: true
 end
