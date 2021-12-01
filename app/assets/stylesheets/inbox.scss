@@ -11,13 +11,12 @@ label {
 
 /* Style the tab */
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 
-/* Style the buttons inside the tab */
-.tab button {
+  /* Style the buttons inside the tab */
+  button {
     background-color: inherit;
     float: left;
     border: none;
@@ -26,17 +25,19 @@ label {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-}
+  }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
+  /* Change background color of buttons on hover */
+  button:hover {
     background-color: #ddd;
+  }
+
+  /* Create an active/current tablink class */
+  button.active {
+    background-color: #ccc;
+  }
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
-}
 
 .form-control {
     margin-top: 40px;
@@ -53,24 +54,23 @@ label {
 /* Style the modal */
 
 .modal {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  text-align: center;
 
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    text-align: center;
-}
-
-.modal .modal-content {
+  .modal-content {
     background-color: #121212;
     padding: 20px;
+  }
 }
 
-.btn-close {
 
+.btn-close {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -78,25 +78,23 @@ label {
 
 /* Style the emails */
 .email {
-    height: 50px;
-    border-radius: 5px;
-    background-color: white;
-    margin: 10px;
-    padding: 10px;
-    overflow: visible;
-    position: relative;
-}
+  height: 50px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  overflow: visible;
+  position: relative;
+  cursor: pointer;
 
-.email p {
+  p {
     float: left;
-}
-
-.email h1 {
-    float: right;
-}
-
-.email p {
     color: black;
+  }
+
+  h1 {
+    float: right;
+  }
 }
 
 /* Style the tab content */
@@ -117,32 +115,32 @@ label {
 
 
 .dropdown {
-    display: inline-block;
-    float: right;
+  display: inline-block;
+  float: right;
+
+  a:hover {
+    background-color: #ddd;
+  }
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    right: 0;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
 
-}
-
-.dropdown-content a {
+  a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+  }
 }
 
-.dropdown a:hover {
-    background-color: #ddd;
-}
 
 .show {
     display: block;

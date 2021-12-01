@@ -125,7 +125,7 @@ class EmailController < ApplicationController
     # Check if the current user is the same as the user who's email belongs to
     if @user.id != current_user.id
       flash[:error] = 'You don\'t have access to this email'
-      return redirect_back(fallback_location: root_path)
+      return redirect_to '/email/inbox'
     end
 
     # As we know de email exists and it belongs to the current user, we can now destroy it

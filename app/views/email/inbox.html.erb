@@ -20,16 +20,19 @@
   <div id="<%= mailbox.name %>" class="tabcontent">
     <% get_emails(mailbox).each do |email| %>
       <div class="email">
-        <p><b><%= email.to %></b></p>
+        <% if mailbox.name == 'Sent' %>
+          <p><b>To:</b> <%= email.to %></p>
+        <% else %>
+          <p><b>From:</b> <%= email.from %></p>
+        <% end %>
         <div class="vl"></div>
-        <p>Testing</p>
+        <p><%= email.subject %></p>
 
         <div class="dropdown">
           <button onclick="myFunction(<%=email.id %>)" class="dropbtn">...</button>
           <div id="<%= email.id %>" class="dropdown-content">
             <a style="color:red;" href="/email/delete_email?id=<%= email.id %>">Delete</a>
-            <a href="#about">Move to...</a>
-            <a href="#contact">Contact</a>
+            <a href="#move ">Move to...</a>
           </div>
         </div>
       </div>
@@ -71,13 +74,13 @@
         }
     }
     // Get the modal
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
-    var btn = document.getElementById("add");
+    let btn = document.getElementById("add");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("btn-close")[0];
+    let span = document.getElementsByClassName("btn-close")[0];
 
     // When the user clicks the button, open the modal
     btn.onclick = function () {

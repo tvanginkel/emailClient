@@ -2,12 +2,11 @@
 <body>
 <%= render 'partials/sidebar' %>
 <h1> Create new email </h1>
-<div id="form">
+<div>
   <%= form_with do |form| %>
     <div class="card">
       <div class="card-body">
-
-        <%= form.text_field :to, { class: "form-control", placeholder: "To..." } %>
+        <%= form.text_field :to, class: "form-control", placeholder: "To..." %>
         <%= text_area_tag 'subject', nil, class: 'form-control', placeholder: 'Subject...', rows: 2 %>
         <%= text_area_tag 'content', nil, class: 'form-control', placeholder: 'Content...', rows: 20 %>
         <br>
@@ -26,7 +25,8 @@
     }
 
     .form-control {
-        margin-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 15px
     }
 
     .card {
@@ -34,6 +34,13 @@
         border-color: #121212;
         margin-left: 10px;
         margin-right: 10px;
+        top: 0;
+        padding: 0;
+    }
+
+    .card-body {
+        top: 0;
+        margin: 0;
     }
 
     textarea {
