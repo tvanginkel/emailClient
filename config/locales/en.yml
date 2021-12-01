@@ -48,6 +48,7 @@ en:
   # Success messages
   success: "Success"
   successful_logout: "Log out was successful"
+  successful_account_delete: "Successfully deleted the account"
 
   # Error messages
   incorrect_credentials: "The email or password was incorrect"

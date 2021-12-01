@@ -2,7 +2,11 @@
 
 # MailBox model
 class MailBox < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_many :emails
+
+  # Relations
+  belongs_to :user
+  has_many :emails, dependent: :destroy
+
+  # Validation
   validates :name, presence: true
 end

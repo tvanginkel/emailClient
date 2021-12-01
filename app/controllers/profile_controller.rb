@@ -1,6 +1,20 @@
 class ProfileController < ApplicationController
   before_action :require_login
 
+  # DELETE /profile/profile
+  #
+  # Delete the current logged in user
+  def delete_account
+    # Delete the current user
+    User.destroy(current_user.id)
+
+    # Delete all the session data
+    reset_session
+
+    flash[:notice] = I18n.t 'successful_account_delete'
+    redirect_to '/auth/login'
+  end
+
   # GET /profile/profile
   def profile; end
 

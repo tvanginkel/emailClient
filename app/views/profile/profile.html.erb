@@ -1,4 +1,51 @@
 <html>
+<head>
+
+  <style>
+
+      .bottom hr {
+          color: red;
+          border-top: 5px solid;
+          margin-bottom: 40px;
+      }
+
+      body {
+          background-color: #242424;
+          /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+          padding-left: 160px;
+      }
+
+      label {
+          color: white;
+      }
+
+      #delete-btn {
+          background-color: red;
+          border-color: red;
+      }
+
+      .bottom {
+          float: bottom;
+          position: absolute;
+          bottom: 50px;
+          right: 0;
+          left: 160px;
+      }
+
+      .card {
+          background-color: #242424;
+          border-color: #121212;
+          margin-left: 10px;
+          margin-right: 10px;
+
+      }
+
+      .form-control {
+          margin-top: 0;
+      }
+
+  </style>
+</head>
 <body>
 <%= render 'partials/sidebar' %>
 
@@ -6,40 +53,30 @@
 
 <%= form_with do |form| %>
   <div class="card">
-
     <div class="card-body">
       <p>Change the password used to login into your account</p>
       <div class="mb-3">
-        <%= form.text_field :password, { class: "form-control", placeholder: "New password" } %>
+        <%= form.text_field :password, class: "form-control", placeholder: "New password", :required => true %>
       </div>
 
       <%= form.submit "Change password", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
+
+<%= form_with :method => :delete do |form| %>
+  <div class="bottom">
+    <div style="text-align: center;"><p style="color: red">Danger Zone!</p></div>
+    <hr>
+    <div class="card">
+      <div class="card-body">
+
+        <p><b>Delete account</b></p>
+        <p>All the information related to your account will be deleted</p>
+        <%= form.submit "Delete account", class: "btn btn-primary", id: "delete-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 </body>
 </html>
-
-<style>
-    body {
-        background-color: #242424;
-        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
-        padding-left: 160px;
-    }
-
-    label {
-        color: white;
-    }
-
-    .card {
-        background-color: #242424;
-        border-color: #121212;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .form-control {
-        margin-top: 0;
-    }
-
-</style>
