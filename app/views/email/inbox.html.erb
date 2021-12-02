@@ -25,26 +25,29 @@
   <div id="<%= mailbox.name %>" class="tabcontent">
     <!-- Print all the emails that belong to the mailbox-->
     <% get_emails(mailbox).each do |email| %>
-      <div class="email">
-        <div style="cursor: pointer;" onclick="window.location='/email/view_email?id=<%= email.id %>'">
-          <% if mailbox.name == 'Sent' %>
-            <p><b>To:</b> <%= email.to %></p>
-          <% else %>
-            <p><b>From:</b> <%= email.from %></p>
-          <% end %>
-          <div class="vl"></div>
-          <p><%= email.subject %></p>
+      <div class="email" onclick="window.location='/email/view_email?id=<%= email.id %>'">
+
+        <% if mailbox.name == 'Sent' %>
+          <p><b>To:</b> <%= email.to %></p>
+        <% else %>
+          <p><b>From:</b> <%= email.from %></p>
+        <% end %>
+        <div class=" vl">
         </div>
+        <p><%= email.subject %></p>
+
 
         <!-- The drop down menu for each email-->
         <div class="dropdown">
-          <button onclick="myFunction(<%=email.id %>)" class="dropbtn">...</button>
+          <button class="dropbtn" onclick="myFunction(<%=email.id %>); event.stopPropagation()">...</button>
           <div id="<%= email.id %>" class="dropdown-content">
             <a style="color:red;" href="/email/delete_email?id=<%= email.id %>">Delete</a>
             <a onclick="open_selection_modal(<%= email.id %>)">Move to...</a>
           </div>
         </div>
       </div>
+
+
     <% end %>
   </div>
 <% end %>
