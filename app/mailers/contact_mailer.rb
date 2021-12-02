@@ -1,8 +1,8 @@
 class ContactMailer < ApplicationMailer
-  default from: 'tginkel1@gmail.com'
+  default from: 'tv00171@surrey.ac.uk'
 
   def contact_email
-    mail(to: 'tv00171@surrey.ac.uk', subject: 'Email Client Contact form')
+    @content = params[:content] #TODO fix error
+    mail(to: 'tv00171@surrey.ac.uk', subject: 'Contact email')
   end
-
 end

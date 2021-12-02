@@ -6,4 +6,12 @@ module ApplicationHelper
     @emails = Email.where(mail_box_id: mail_box.id)
   end
 
+  def get_mailboxes
+    # Get all the mailboxes of the user
+    mailboxes = MailBox.where(user_id: current_user.id)
+
+    # Map the mailboxes to the names
+    @mailboxes = mailboxes.map(&:name)
+  end
+
 end

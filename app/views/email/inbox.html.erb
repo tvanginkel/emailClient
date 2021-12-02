@@ -8,6 +8,7 @@
 <%= render 'partials/sidebar' %>
 <h1> Inbox </h1>
 
+<!-- Code for the tabs-->
 <div class="tab">
   <% @mailboxes.each do |mailbox| %>
     <button class="tablinks" onclick="selectTab(event, '<%= mailbox.name %>')" id='default-open'>
@@ -16,8 +17,10 @@
   <button style="color: green" id="add">+</button>
 </div>
 
+<!-- Code for the tab content-->
 <% @mailboxes.each do |mailbox| %>
   <div id="<%= mailbox.name %>" class="tabcontent">
+    <!-- Print all the emails that belong to the mailbox-->
     <% get_emails(mailbox).each do |email| %>
       <div class="email">
         <% if mailbox.name == 'Sent' %>
@@ -28,11 +31,12 @@
         <div class="vl"></div>
         <p><%= email.subject %></p>
 
+        <!-- The drop down menu for each email-->
         <div class="dropdown">
           <button onclick="myFunction(<%=email.id %>)" class="dropbtn">...</button>
           <div id="<%= email.id %>" class="dropdown-content">
             <a style="color:red;" href="/email/delete_email?id=<%= email.id %>">Delete</a>
-            <a href="#move ">Move to...</a>
+            <a onclick="open_selection_modal(<%= email.id %>)">Move to...</a>
           </div>
         </div>
       </div>
@@ -40,8 +44,8 @@
   </div>
 <% end %>
 
+<!-- Code for the add inbox modal-->
 <div id="myModal" class="modal">
-  <!-- Modal content -->
   <div class="modal-content">
     <button class="btn-close btn-close-white" aria-label="Close"></button>
     <%= form_with :url => '/email/inbox', :method => :post do |form| %>
@@ -50,7 +54,19 @@
       <%= form.submit "Create inbox", class: "btn btn-primary" %>
     <% end %>
   </div>
+</div>
 
+<!-- Code for the add inbox selection modal-->
+<div id="mailbox_modal" class="modal">
+  <div class="modal-content">
+    <button class="btn-close btn-close-white" aria-label="Close" , onclick="close_selection_modal()"></button>
+    <%= form_with :url => '/email/change_inbox', :method => :post do |form| %>
+      <%= hidden_field_tag 'email_id', value = 'no val' %>
+      <%= form.select :name, get_mailboxes, class: "form-select" %>
+      <br>
+      <%= form.submit "Move", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <script>
@@ -73,6 +89,19 @@
             }
         }
     }
+
+    function open_selection_modal(id) {
+        document.getElementById("mailbox_modal").classList.toggle("show")
+        document.getElementById("email_id").value = id
+    }
+
+    // When the close button is pressed close the modal
+    function close_selection_modal() {
+        if (document.getElementById("mailbox_modal").classList.contains('show')) {
+            document.getElementById("mailbox_modal").classList.remove('show');
+        }
+    }
+
     // Get the modal
     let modal = document.getElementById("myModal");
 
@@ -84,19 +113,19 @@
 
     // When the user clicks the button, open the modal
     btn.onclick = function () {
-        modal.style.display = "block";
+        modal.classList.toggle("show")
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
-        modal.style.display = "none";
+        if (modal.classList.contains('show')) {
+            modal.classList.remove('show');
+        }
     }
 
-    //TODO: Add script to file in javascript folder
     document.getElementById("default-open").click();
 
-    // TODO: Change name of function
-    function selectTab(evt, cityName) {
+    function selectTab(evt, element) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -106,7 +135,7 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(element).style.display = "block";
         evt.currentTarget.className += " active";
     }
 </script>

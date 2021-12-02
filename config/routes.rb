@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Email routes
   get 'email/inbox'
   post 'email/inbox', to: 'email#create_inbox'
+  post 'email/change_inbox', to: 'email#change_inbox'
   get 'email/new_email'
   post 'email/new_email', to: 'email#create_email'
   get 'email/delete_email'

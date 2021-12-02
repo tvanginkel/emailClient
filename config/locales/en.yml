@@ -35,6 +35,7 @@ en:
   empty_subject: "The email needs a subject"
   empty_inbox_name: "The inbox needs a name"
   empty_password: "The password is empty"
+  empty_message: "You can't send an empty message"
 
   # Invalid messages
   invalid_password: "Invalid password"

@@ -4,6 +4,42 @@
 class EmailController < ApplicationController
   before_action :require_login
 
+  # POST /email/change_inbox
+  #
+  # Change the mailbox an email of the current user belongs to
+  def change_inbox
+    # Find the email from the db
+    email = Email.find_by(id: params[:email_id])
+
+    # Check the email exists
+    if email.nil?
+      flash[:error] = I18n.t 'email_not_found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Find the mailbox the user wants to move the email to
+    mailbox = MailBox.where(user_id: current_user.id, name: params[:name])[0]
+
+    # Check it exists
+    if mailbox.nil?
+      flash[:error] = I18n.t 'mailbox_not_found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Change the mailbox the email belongs to
+    email.mail_box_id = mailbox.id
+
+    # Save the changes to the db
+    unless email.save
+      flash[:error] = I18n.t 'unexpected_error'
+      redirect_back(fallback_location: root_path)
+    end
+
+    # Tell the user it was a success
+    flash[:notice] = I18n.t 'success'
+    redirect_back(fallback_location: root_path)
+  end
+
   # GET /email/new_email
   def new_email; end
 
