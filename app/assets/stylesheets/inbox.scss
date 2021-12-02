@@ -1,12 +1,12 @@
 
 body {
-    background-color: #242424;
-    /* Add this padding so the content of the page does not overlap with the sidebar partial*/
-    padding-left: 160px;
+  background-color: #242424;
+  /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+  padding-left: 160px;
 }
 
 label {
-    color: white;
+  color: white;
 }
 
 /* Style the tab */
@@ -27,6 +27,7 @@ label {
     font-size: 17px;
   }
 
+
   /* Change background color of buttons on hover */
   button:hover {
     background-color: #ddd;
@@ -40,22 +41,28 @@ label {
 
 
 .form-control {
-    margin-top: 40px;
+  margin-top: 40px;
+}
+
+.form-select {
+  margin-top: 30px;
 }
 
 .vl {
-    border-left: 1px solid #000;
-    height: 30px;
-    float: left;
-    margin-left: 10px;
-    margin-right: 10px
+  border-left: 1px solid #000;
+  height: 30px;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px
 }
 
 /* Style the modal */
 
 .modal {
+  backdrop-filter: blur();
+  background: blue;
   width: 300px;
-  height: 300px;
+  height: auto;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -71,9 +78,9 @@ label {
 
 
 .btn-close {
-    position: absolute;
-    left: 10px;
-    top: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 /* Style the emails */
@@ -85,7 +92,6 @@ label {
   padding: 10px;
   overflow: visible;
   position: relative;
-  cursor: pointer;
 
   p {
     float: left;
@@ -99,18 +105,18 @@ label {
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
-    border-top: none;
+  display: none;
+  border-top: none;
 }
 
 /* Style the dropdown menu */
 .dropbtn {
-    background-color: white;
-    color: black;
-    padding: 4px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 4px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 
@@ -143,5 +149,5 @@ label {
 
 
 .show {
-    display: block;
+  display: block;
 }

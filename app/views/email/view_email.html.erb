@@ -1,0 +1,17 @@
+<html>
+<head>
+  <style>
+      body {
+          background-color: #242424
+      }
+  </style>
+</head>
+<body>
+<%= render 'partials/sidebar' %>
+<h1><b>From:</b> <%= @email.from %></h1>
+<h5><b>TO:</b> <%= @email.to %></h5>
+<p><b>Subject:</b> <%= @email.subject %></p>
+<br>
+<p><%= @email.content %></p>
+</body>
+</html>

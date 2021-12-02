@@ -4,6 +4,53 @@
 class EmailController < ApplicationController
   before_action :require_login
 
+  def view_email
+    # Get the email from the db
+    email = Email.find_by(id: params[:id])
+
+    # Check the email exists
+    if email.nil?
+      flash[:error] = I18n.t 'email_not_found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Get the user that the email belongs to
+    user = helpers.get_user_from_email(email.id)
+
+    # Check the user was found
+    # This should never trigger as it is impossible to have and email without a user
+    if email.nil?
+      flash[:error] = I18n.t 'user_not_found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Check the email the user is trying to view belongs to the current user
+    if user.id != current_user.id
+      flash[:error] = I18n.t 'unauthorized'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Give the view access to the email info
+    @email = email
+  end
+
+  def remove_inbox
+    mailbox = MailBox.where(user_id: current_user.id, name: params[:name])[0]
+
+    # Check the mailbox exists
+    if mailbox.nil?
+      flash[:error] = I18n.t 'mailbox_not_found'
+      return redirect_back(fallback_location: root_path)
+    end
+
+    # Destroy the mailbox
+    MailBox.destroy(mailbox.id)
+
+    # Tell the user it was a success
+    flash[:notice] = I18n.t 'success'
+    redirect_back(fallback_location: root_path)
+  end
+
   # POST /email/change_inbox
   #
   # Change the mailbox an email of the current user belongs to
@@ -149,32 +196,7 @@ class EmailController < ApplicationController
   def delete_email
     id = params[:id]
 
-    # Get the email
-    email = Email.find_by(id: id)
-
-    # Check if the email exists
-    if email.nil?
-      flash[:error] = I18n.t 'email_not_found'
-      return redirect_back(fallback_location: root_path)
-    end
-
-    # Get the mailbox the email belongs to
-    mailbox = MailBox.find_by(id: email.mail_box_id)
-
-    # Check if the mailbox was found
-    if mailbox.nil?
-      flash[:error] = I18n.t 'mailbox_not_found'
-      return redirect_back(fallback_location: root_path)
-    end
-
-    # Get the user that the mailbox belongs to
-    user = User.find_by(id: mailbox.user_id)
-
-    # Check if the user exists
-    if user.nil?
-      flash[:error] = I18n.t 'user_not_found'
-      return redirect_back(fallback_location: root_path)
-    end
+    user = helpers.get_user_from_email(id)
 
     # Check if the current user is the same as the user who's email belongs to
     if user.id != current_user.id
@@ -200,4 +222,5 @@ class EmailController < ApplicationController
     # These are all the values that are whitelisted
     params.permit(:name, :authenticity_token, :commit)
   end
+
 end

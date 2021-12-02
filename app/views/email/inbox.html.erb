@@ -2,6 +2,8 @@
 
 <head>
   <%= stylesheet_link_tag "application.css" %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -15,6 +17,7 @@
       <%= mailbox.name %></button>
   <% end %>
   <button style="color: green" id="add">+</button>
+  <button style="color: red" id="remove" onclick="removeInbox()">-</button>
 </div>
 
 <!-- Code for the tab content-->
@@ -23,13 +26,15 @@
     <!-- Print all the emails that belong to the mailbox-->
     <% get_emails(mailbox).each do |email| %>
       <div class="email">
-        <% if mailbox.name == 'Sent' %>
-          <p><b>To:</b> <%= email.to %></p>
-        <% else %>
-          <p><b>From:</b> <%= email.from %></p>
-        <% end %>
-        <div class="vl"></div>
-        <p><%= email.subject %></p>
+        <div style="cursor: pointer;" onclick="window.location='/email/view_email?id=<%= email.id %>'">
+          <% if mailbox.name == 'Sent' %>
+            <p><b>To:</b> <%= email.to %></p>
+          <% else %>
+            <p><b>From:</b> <%= email.from %></p>
+          <% end %>
+          <div class="vl"></div>
+          <p><%= email.subject %></p>
+        </div>
 
         <!-- The drop down menu for each email-->
         <div class="dropdown">
@@ -62,14 +67,26 @@
     <button class="btn-close btn-close-white" aria-label="Close" , onclick="close_selection_modal()"></button>
     <%= form_with :url => '/email/change_inbox', :method => :post do |form| %>
       <%= hidden_field_tag 'email_id', value = 'no val' %>
-      <%= form.select :name, get_mailboxes, class: "form-select" %>
+      <%= select_tag :name, options_for_select(get_mailboxes), class: "form-select" %>
       <br>
       <%= form.submit "Move", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 
+<!-- Code for removing and inbox-->
+<div id="mailbox_remove_modal" class="modal">
+  <div class="modal-content">
+    <button class="btn-close btn-close-white" aria-label="Close" , onclick="close_remove_mailbox()"></button>
+    <%= form_with :url => '/email/remove_inbox', :method => :post do |form| %>
+      <%= select_tag :name, options_for_select(get_mailboxes), class: "form-select" %>
+      <br>
+      <%= form.submit "Remove", class: "btn btn-primary", style: "background-color:red;border:red;" %>
+    <% end %>
+  </div>
+</div>
 <script>
+
     /* When the user clicks on the button,
     toggle between hiding and showing the dropdown content */
     function myFunction(id) {
@@ -102,6 +119,13 @@
         }
     }
 
+    // When the close button is pressed close the modal
+    function close_remove_mailbox() {
+        if (document.getElementById("mailbox_remove_modal").classList.contains('show')) {
+            document.getElementById("mailbox_remove_modal").classList.remove('show');
+        }
+    }
+
     // Get the modal
     let modal = document.getElementById("myModal");
 
@@ -114,6 +138,10 @@
     // When the user clicks the button, open the modal
     btn.onclick = function () {
         modal.classList.toggle("show")
+    }
+
+    function removeInbox() {
+        document.getElementById("mailbox_remove_modal").classList.toggle("show");
     }
 
     // When the user clicks on <span> (x), close the modal
