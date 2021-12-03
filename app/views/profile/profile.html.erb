@@ -13,6 +13,8 @@
           background-color: #242424;
           /* Add this padding so the content of the page does not overlap with the sidebar partial*/
           padding-left: 160px;
+
+          padding-top: 20px;
       }
 
       label {
@@ -47,9 +49,8 @@
   </style>
 </head>
 <body>
-<%= render 'partials/sidebar' %>
+<%= render partial: 'partials/sidebar', :locals => { :page => 'profile' } %>
 
-<h1> Profile </h1>
 
 <%= form_with do |form| %>
   <div class="card">

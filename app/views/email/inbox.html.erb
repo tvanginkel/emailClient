@@ -2,13 +2,10 @@
 
 <head>
   <%= stylesheet_link_tag "application.css" %>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<%= render 'partials/sidebar' %>
-<h1> Inbox </h1>
+<%= render partial: 'partials/sidebar', :locals => { :page => 'inbox' } %>
 
 <!-- Code for the tabs-->
 <div class="tab">

@@ -1,7 +1,41 @@
 <html>
+<head>
+
+  <style>
+      body {
+          background-color: #242424;
+          /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+          padding-left: 160px;
+          padding-top: 20px;
+      }
+
+      .form-control {
+          margin-top: 0;
+          margin-bottom: 15px
+      }
+
+      .card {
+          background-color: #242424;
+          border-color: #121212;
+          margin-left: 10px;
+          margin-right: 10px;
+          top: 0;
+          padding: 0;
+      }
+
+      .card-body {
+          top: 0;
+          margin: 0;
+      }
+
+      textarea {
+          resize: none;
+      }
+  </style>
+
+</head>
 <body>
-<%= render 'partials/sidebar' %>
-<h1> Create new email </h1>
+<%= render partial: 'partials/sidebar', :locals => { :page => 'new_email' } %>
 <div>
   <%= form_with do |form| %>
     <div class="card">
@@ -16,34 +50,3 @@
   <% end %></div>
 </body>
 </html>
-
-<style>
-    body {
-        background-color: #242424;
-        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
-        padding-left: 160px;
-    }
-
-    .form-control {
-        margin-top: 0;
-        margin-bottom: 15px
-    }
-
-    .card {
-        background-color: #242424;
-        border-color: #121212;
-        margin-left: 10px;
-        margin-right: 10px;
-        top: 0;
-        padding: 0;
-    }
-
-    .card-body {
-        top: 0;
-        margin: 0;
-    }
-
-    textarea {
-        resize: none;
-    }
-</style>

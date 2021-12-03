@@ -1,7 +1,34 @@
 <html>
+<head>
+  <style>
+      body {
+          background-color: #242424;
+          /* Add this padding so the content of the page does not overlap with the sidebar partial*/
+          padding-left: 160px;
+      }
+
+      label {
+          color: white;
+      }
+
+      .form-control {
+          margin-top: 0;
+
+      }
+
+      .card {
+          background-color: #242424;
+          border-color: #121212;
+          margin-left: 10px;
+          margin-right: 10px;
+      }
+
+  </style>
+</head>
 <body>
-<%= render 'partials/sidebar' %>
-<h1> Contact </h1>
+<%= render partial: 'partials/sidebar', :locals => { :page => 'contact' } %>
+
+
 <%= form_with do |form| %>
   <div class="card">
     <div class="card-body">
@@ -17,27 +44,4 @@
 </body>
 </html>
 
-<style>
-    body {
-        background-color: #242424;
-        /* Add this padding so the content of the page does not overlap with the sidebar partial*/
-        padding-left: 160px;
-    }
 
-    label {
-        color: white;
-    }
-
-    .form-control {
-        margin-top: 0;
-        
-    }
-
-    .card {
-        background-color: #242424;
-        border-color: #121212;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-</style>

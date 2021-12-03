@@ -53,22 +53,31 @@
           color: white;
       }
 
+      .sidenav .active {
+          color: white;
+      }
+
   </style>
 
 </head>
 <body>
 
 <div class="sidenav">
-  <a href="/email/inbox">Inbox</a>
-  <a href="/email/new_email">Send email</a>
-  <a href="/profile/profile">Profile</a>
-  <a href="/contact/contact">Contact</a>
+  <a href="/email/inbox" onclick="select('inbox')" id="inbox">Inbox</a>
+  <a href="/email/new_email" onclick="select('new_email')" id="new_email">Send email</a>
+  <a href="/profile/profile" onclick="select('profile')" id="profile">Profile</a>
+  <a href="/contact/contact" onclick="select('contact')" id="contact">Contact</a>
   <div class="bott">
     <hr>
     <a href="/auth/logout">Log out</a>
   </div>
 </div>
 
+
+<script>
+    document.getElementById("<%=page%>").classList.add("active");
+    console.log(document.getElementById("<%=page%>"));
+</script>
 
 </body>
 </html>
