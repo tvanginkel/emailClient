@@ -57,13 +57,13 @@
 <body>
 
 <%= render 'partials/sidebar' %>
-<a onclick="goBack()" class="back-button">&laquo; Previous</a>
+<a onclick="goBack()" class="back-button">&laquo; <%= I18n.t 'previous' %></a>
 <div class="card">
   <div class="card-body">
-    <h1><b>From:</b> <%= @email.from %></h1>
-    <h5><b>TO:</b> <%= @email.to %></h5>
+    <h1><b><%= I18n.t 'from' %>:</b> <%= @email.from %></h1>
+    <h5><b><%= I18n.t 'to' %>:</b> <%= @email.to %></h5>
     <hr>
-    <p><b>Subject:</b> <%= @email.subject %></p>
+    <p><b><%= I18n.t 'subject' %>:</b> <%= @email.subject %></p>
     <br>
     <p><%= @email.content %></p>
   </div>

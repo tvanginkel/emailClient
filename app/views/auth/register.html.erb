@@ -30,21 +30,21 @@
 <body>
 
 <div class="center">
-  <h1> Make an account </h1>
+  <h1> <%= I18n.t 'make_an_account' %></h1>
   <br>
   <%= form_with do |form| %>
     <%= form.label :email, "Email:" %>
     <%= form.text_field :email %>
     <br>
     <br>
-    <%= form.label :password, "Password:" %>
+    <%= form.label :password, (I18n.t 'password_field') %>
     <%= form.text_field :password %>
     <br>
     <br>
-    <%= form.submit "Create account" %>
+    <%= form.submit (I18n.t 'create_account') %>
   <% end %>
 
-  <a href="/auth/login">Already have an account? Log in</a>
+  <a href="/auth/login"><%= I18n.t 'already_have_an_account' %></a>
 </div>
 
 

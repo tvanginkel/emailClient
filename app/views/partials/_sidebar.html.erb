@@ -63,13 +63,13 @@
 <body>
 
 <div class="sidenav">
-  <a href="/email/inbox" onclick="select('inbox')" id="inbox">Inbox</a>
-  <a href="/email/new_email" onclick="select('new_email')" id="new_email">Send email</a>
-  <a href="/profile/profile" onclick="select('profile')" id="profile">Profile</a>
-  <a href="/contact/contact" onclick="select('contact')" id="contact">Contact</a>
+  <a href="/email/inbox" onclick="select('inbox')" id="inbox"><%= I18n.t 'inbox' %></a>
+  <a href="/email/new_email" onclick="select('new_email')" id="new_email"><%= I18n.t 'send_email' %></a>
+  <a href="/profile/profile" onclick="select('profile')" id="profile"><%= I18n.t 'profile' %></a>
+  <a href="/contact/contact" onclick="select('contact')" id="contact"><%= I18n.t 'contact' %></a>
   <div class="bott">
     <hr>
-    <a href="/auth/logout">Log out</a>
+    <a href="/auth/logout"><%= I18n.t 'log_out' %></a>
   </div>
 </div>
 

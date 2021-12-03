@@ -52,29 +52,30 @@
 <%= render partial: 'partials/sidebar', :locals => { :page => 'profile' } %>
 
 
+
 <%= form_with do |form| %>
   <div class="card">
     <div class="card-body">
-      <p>Change the password used to login into your account</p>
+      <p><%= I18n.t 'change_password_message' %></p>
       <div class="mb-3">
-        <%= form.text_field :password, class: "form-control", placeholder: "New password", :required => true %>
+        <%= form.text_field :password, class: "form-control", placeholder: (I18n.t 'new_password_field'), :required => true %>
       </div>
 
-      <%= form.submit "Change password", class: "btn btn-primary" %>
+      <%= form.submit (I18n.t 'change_password_button'), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
 
 <%= form_with :method => :delete do |form| %>
   <div class="bottom">
-    <div style="text-align: center;"><p style="color: red">Danger Zone!</p></div>
+    <div style="text-align: center;"><p style="color: red"><%= I18n.t 'danger_zone' %></p></div>
     <hr>
     <div class="card">
       <div class="card-body">
 
-        <p><b>Delete account</b></p>
-        <p>All the information related to your account will be deleted</p>
-        <%= form.submit "Delete account", class: "btn btn-primary", id: "delete-btn" %>
+        <p><b><%= I18n.t 'delete_account' %></b></p>
+        <p><%= I18n.t 'delete_account_message' %></p>
+        <%= form.submit (I18n.t 'delete_account'), class: "btn btn-primary", id: "delete-btn" %>
       </div>
     </div>
   </div>

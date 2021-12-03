@@ -57,6 +57,35 @@ en:
   unexpected_error: "There was an unexpected error"
   unauthorized: "You don't have access to this page"
 
+  # UI
+  email_field: "Email"
+  password_field: "Password"
+  new_password_field: "New password"
+  make_an_account: "Make an account"
+  create_account: "Create account"
+  already_have_an_account: "Already have an account? Log in"
+  contact_placeholder: "Tell us what's on your mind"
+  send: "Send"
+  delete: "Delete"
+  to: "To"
+  from: "From"
+  subject: "Subject"
+  content: "Content"
+  move_to: "Move to..."
+  previous: "Previous"
+  inbox: "Inbox"
+  send_email: "Send email"
+  profile: "Profile"
+  contact: "Contact"
+  log_out: "Log out"
+  change_password_message: "Change the password used to login into your account"
+  change_password_button: "Change password"
+  danger_zone: "Danger Zone!"
+  delete_account: "Delete account"
+  delete_account_message: "All the information related to your account will be deleted"
+
+
+
 
 
 
