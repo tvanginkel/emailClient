@@ -42,7 +42,7 @@
           <button class="dropbtn" onclick="myFunction(<%=email.id %>); event.stopPropagation()">...</button>
           <div id="<%= email.id %>" class="dropdown-content">
             <a style="color:red;" href="/email/delete_email?id=<%= email.id %>">Delete</a>
-            <a onclick="open_selection_modal(<%= email.id %>)">Move to...</a>
+            <a onclick="open_selection_modal(<%= email.id %>); event.stopPropagation()">Move to...</a>
           </div>
         </div>
       </div>
