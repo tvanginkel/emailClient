@@ -5,14 +5,15 @@ class ContactController < ApplicationController
 
   # Use a contact_mailer to send the contact info to and email
   def send_contact
-    @content = params[:content]
+    content = params[:content]
+    name = current_user.email
 
-    if @content == ''
+    if content == ''
       flash[:notice] = I18n.t 'empty_message'
       return redirect_back(fallback_location: root_path)
     end
 
-    ContactMailer.with(@content).contact_email.deliver_later
+    ContactMailer.contact_email(content, name).deliver_later
 
     flash[:notice] = I18n.t 'success'
     redirect_back(fallback_location: root_path)

@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  from: MyString
-  to: MyString
+  from: test1@gmail.com
+  to: test2@gmail.com
   content: MyString
   subject: MyString
-  mailbox_id: 1
+  mail_box_id: 1
 
 two:
-  from: MyString
-  to: MyString
+  from: test1@gmail.com
+  to: test2@gmail.com
   content: MyString
   subject: MyString
-  mailbox_id: 1
+  mail_box_id: 4

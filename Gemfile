@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 5.1.3'
 # Argon2
 gem 'argon2', '~> 2.1', '>= 2.1.1'
+# Controller testing
+gem 'rails-controller-testing'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

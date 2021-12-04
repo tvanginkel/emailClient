@@ -26,7 +26,7 @@
 <body>
 <% if flash[:notice] %>
   <div class="alert alert-info">
-    <span class="close">&#10060;</span>
+    <span class="close" onclick="closeAlert()">&#10060;</span>
     <%= flash[:notice] %>
   </div>
 <% end %>
