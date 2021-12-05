@@ -2,10 +2,10 @@
 
 one:
   email: test1@gmail.com
-  password: 123
+  password: "123"
   sessionToken: MyString
 
 two:
   email: test2@gmail.com
-  password: 123
+  password: '123'
   sessionToken: MyString

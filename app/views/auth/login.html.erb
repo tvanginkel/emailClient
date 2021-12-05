@@ -33,12 +33,10 @@
   <h1> Log in </h1>
   <br>
   <%= form_with do |form| %>
-    <%= form.label :email, (I18n.t 'fields.email_field') %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, placeholder: (I18n.t 'fields.email_field'), :required => true %>
     <br>
     <br>
-    <%= form.label :password, "Password:" %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, placeholder: (I18n.t 'fields.password_field'), :required => true %>
     <br>
     <br>
     <%= form.submit "Log in" %>

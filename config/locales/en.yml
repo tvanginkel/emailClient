@@ -30,12 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  # Empty messages
+  # Empty message
   empty:
     subject: "The email needs a subject"
     inbox_name: "The inbox needs a name"
     password: "The password is empty"
     message: "You can't send an empty message"
+    name: "You need to send us a name"
 
   # Invalid messages
   invalid:
@@ -83,6 +84,8 @@ en:
     from: "From"
     subject: "Subject"
     content: "Content"
+    name: "Your full name"
+    phone: "Your phone number"
 
   #Buttons or other actions that don't fall in a specific category
   actions:

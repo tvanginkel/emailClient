@@ -27,6 +27,12 @@ class AuthController < ApplicationController
     email = account_params[:email]
     password = account_params[:password]
 
+    # Check to make sure the password is not empty
+    if password == ''
+      flash[:error] = I18n.t 'empty.password'
+      return redirect_back(fallback_location: root_path)
+    end
+
     # Find the user in the db
     user = User.find_by_email(email)
 
