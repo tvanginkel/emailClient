@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def require_login
     return if logged_in?
 
-    flash[:error] = I18n.t 'unauthorized'
+    flash[:error] = I18n.t 'error.unauthorized'
     redirect_to '/auth/login'
   end
 end

@@ -25,9 +25,9 @@
       <div class="email" onclick="window.location='/email/view_email?id=<%= email.id %>'">
 
         <% if mailbox.name == 'Sent' %>
-          <p><b><%= I18n.t 'to' %>:</b> <%= email.to %></p>
+          <p><b><%= I18n.t 'fields.to' %>:</b> <%= email.to %></p>
         <% else %>
-          <p><b><%= I18n.t 'from' %>:</b> <%= email.from %></p>
+          <p><b><%= I18n.t 'fields.from' %>:</b> <%= email.from %></p>
         <% end %>
         <div class=" vl">
         </div>
@@ -38,8 +38,8 @@
         <div class="dropdown">
           <button class="dropbtn" onclick="myFunction(<%=email.id %>); event.stopPropagation()">...</button>
           <div id="<%= email.id %>" class="dropdown-content">
-            <a style="color:red;" href="/email/delete_email?id=<%= email.id %>"><%= I18n.t 'delete' %></a>
-            <a onclick="open_selection_modal(<%= email.id %>); event.stopPropagation()"><%= I18n.t 'move_to' %></a>
+            <a style="color:red;" href="/email/delete_email?id=<%= email.id %>"><%= I18n.t 'actions.delete' %></a>
+            <a onclick="open_selection_modal(<%= email.id %>); event.stopPropagation()"><%= I18n.t 'actions.move_to' %></a>
           </div>
         </div>
       </div>

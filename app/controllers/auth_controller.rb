@@ -15,7 +15,7 @@ class AuthController < ApplicationController
   def logout
     # Delete all session data to prevent unauthorized access to pages
     reset_session
-    flash[:notice] = I18n.t 'successful_logout'
+    flash[:notice] = I18n.t 'success.logout'
     redirect_to '/auth/login'
   end
 
@@ -32,13 +32,13 @@ class AuthController < ApplicationController
 
     # Check if the user was found
     if user.nil?
-      flash[:error] = I18n.t 'incorrect_credentials'
+      flash[:error] = I18n.t 'error.incorrect_credentials'
       return redirect_back(fallback_location: root_path)
     end
 
     # Check if the password is correct
     unless Argon2::Password.verify_password(password, user.password)
-      flash[:error] = I18n.t 'incorrect_credentials'
+      flash[:error] = I18n.t 'error.incorrect_credentials'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -60,13 +60,13 @@ class AuthController < ApplicationController
 
     # If a user was found tell return an error message
     unless user.nil?
-      flash[:error] = I18n.t 'email_already_exists'
+      flash[:error] = I18n.t 'error.email_already_exists'
       return redirect_back(fallback_location: root_path)
     end
 
     # Check the password is not empty
     if password == ''
-      flash[:error] = I18n.t 'invalid_password'
+      flash[:error] = I18n.t 'invalid.password'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -77,13 +77,13 @@ class AuthController < ApplicationController
     user = User.new(email: email, password: hash)
 
     unless user.valid?
-      flash[:error] = I18n.t 'invalid_email'
+      flash[:error] = I18n.t 'invalid.email'
       return redirect_back(fallback_location: root_path)
     end
 
     # Check if the user was saved to the db
     unless user.save
-      flash[:error] = I18n.t 'unexpected_error'
+      flash[:error] = I18n.t 'error.unexpected_error'
       return redirect_back(fallback_location: root_path)
     end
 

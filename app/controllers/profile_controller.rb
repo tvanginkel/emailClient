@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
     # Delete all the session data
     reset_session
 
-    flash[:notice] = I18n.t 'successful_account_delete'
+    flash[:notice] = I18n.t 'success.account_delete'
     redirect_to '/auth/login'
   end
 
@@ -26,7 +26,7 @@ class ProfileController < ApplicationController
     password = params[:password]
 
     if password == ''
-      flash[:notice] = I18n.t 'empty_password'
+      flash[:notice] = I18n.t 'empty.password'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -42,11 +42,11 @@ class ProfileController < ApplicationController
     # Try to save the modified user to the db
     unless user.save
       # Show a flash error and reload the page if failed to save
-      flash[:error] = I18n.t 'unexpected_error'
+      flash[:error] = I18n.t 'error.unexpected_error'
       return redirect_back(fallback_location: root_path)
     end
 
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
     redirect_back(fallback_location: root_path)
   end
 end

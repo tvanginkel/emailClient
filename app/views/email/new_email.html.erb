@@ -40,11 +40,11 @@
   <%= form_with do |form| %>
     <div class="card">
       <div class="card-body">
-        <%= form.text_field :to, class: "form-control", :required => true, placeholder: "#{I18n.t 'to'}..." %>
-        <%= text_area_tag 'subject', nil, class: 'form-control', placeholder: "#{ I18n.t 'subject' }...", rows: 2, :required => true %>
-        <%= text_area_tag 'content', nil, class: 'form-control', placeholder: "#{I18n.t 'content'}...", rows: 20 %>
+        <%= form.text_field :to, class: "form-control", :required => true, placeholder: "#{I18n.t 'fields.to'}..." %>
+        <%= text_area_tag 'subject', nil, class: 'form-control', placeholder: "#{ I18n.t 'fields.subject' }...", rows: 2, :required => true %>
+        <%= text_area_tag 'content', nil, class: 'form-control', placeholder: "#{I18n.t 'fields.content'}...", rows: 20 %>
         <br>
-        <%= form.submit (I18n.t 'send'), class: "btn btn-primary" %>
+        <%= form.submit (I18n.t 'actions.send'), class: "btn btn-primary" %>
       </div>
     </div>
   <% end %></div>

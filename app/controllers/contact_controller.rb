@@ -9,13 +9,13 @@ class ContactController < ApplicationController
     name = current_user.email
 
     if content == ''
-      flash[:notice] = I18n.t 'empty_message'
+      flash[:notice] = I18n.t 'empty.message'
       return redirect_back(fallback_location: root_path)
     end
 
     ContactMailer.contact_email(content, name).deliver_later
 
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
     redirect_back(fallback_location: root_path)
   end
 end

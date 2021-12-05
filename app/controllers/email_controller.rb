@@ -10,7 +10,7 @@ class EmailController < ApplicationController
 
     # Check the email exists
     if email.nil?
-      flash[:error] = I18n.t 'email_not_found'
+      flash[:error] = I18n.t 'not_found.email'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -20,13 +20,13 @@ class EmailController < ApplicationController
     # Check the user was found
     # This should never trigger as it is impossible to have and email without a user
     if email.nil?
-      flash[:error] = I18n.t 'user_not_found'
+      flash[:error] = I18n.t 'not_found.user'
       return redirect_back(fallback_location: root_path)
     end
 
     # Check the email the user is trying to view belongs to the current user
     if user.id != current_user.id
-      flash[:error] = I18n.t 'unauthorized'
+      flash[:error] = I18n.t 'error.unauthorized'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -39,7 +39,7 @@ class EmailController < ApplicationController
 
     # Check the mailbox exists
     if mailbox.nil?
-      flash[:error] = I18n.t 'mailbox_not_found'
+      flash[:error] = I18n.t 'not_found.mailbox'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -47,7 +47,7 @@ class EmailController < ApplicationController
     MailBox.destroy(mailbox.id)
 
     # Tell the user it was a success
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
     redirect_back(fallback_location: root_path)
   end
 
@@ -60,7 +60,7 @@ class EmailController < ApplicationController
 
     # Check the email exists
     if email.nil?
-      flash[:error] = I18n.t 'email_not_found'
+      flash[:error] = I18n.t 'not_found.email'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -69,7 +69,7 @@ class EmailController < ApplicationController
 
     # Check it exists
     if mailbox.nil?
-      flash[:error] = I18n.t 'mailbox_not_found'
+      flash[:error] = I18n.t 'not_found.mailbox'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -78,12 +78,12 @@ class EmailController < ApplicationController
 
     # Save the changes to the db
     unless email.save
-      flash[:error] = I18n.t 'unexpected_error'
+      flash[:error] = I18n.t 'error.unexpected_error'
       redirect_back(fallback_location: root_path)
     end
 
     # Tell the user it was a success
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
     redirect_back(fallback_location: root_path)
   end
 
@@ -109,7 +109,7 @@ class EmailController < ApplicationController
 
     # Check if the user the email is being sent to exists
     if user_to.nil?
-      flash[:error] = I18n.t 'user_not_found'
+      flash[:error] = I18n.t 'not_found.user'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -125,13 +125,13 @@ class EmailController < ApplicationController
 
     # Check if the email validation passes
     unless email.valid?
-      flash[:error] = I18n.t 'missing_subject'
+      flash[:error] = I18n.t 'empty.subject'
       return redirect_back(fallback_location: root_path)
     end
 
     # Save the email to the db, if there's and error print the error and refresh the page
     unless email.save
-      flash[:error] = "#{I18n.t 'unexpected_error'}: #{email.errors}"
+      flash[:error] = "#{I18n.t 'error.unexpected_error'}: #{email.errors}"
       return redirect_back(fallback_location: root_path)
     end
 
@@ -147,12 +147,12 @@ class EmailController < ApplicationController
 
     # Try to save the email to the db, if it doesn't work then throw and error
     unless email_to.save
-      flash[:error] = "#{I18n.t 'unexpected_error'}: #{email_to.errors}"
+      flash[:error] = "#{I18n.t 'error.unexpected_error'}: #{email_to.errors}"
       return redirect_back(fallback_location: root_path)
     end
 
     # Refresh the page and notify the user that the email was sent successfully
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
 
     # Redirect to the inbox page
     redirect_to '/email/inbox'
@@ -174,7 +174,7 @@ class EmailController < ApplicationController
     mailbox = MailBox.new(name: name, user_id: current_user.id)
 
     unless mailbox.valid?
-      flash[:error] = I18n.t 'missing_inbox_name'
+      flash[:error] = I18n.t 'empty.inbox_name'
       return redirect_back(fallback_location: root_path)
     end
 
@@ -185,7 +185,7 @@ class EmailController < ApplicationController
     end
 
     # Tell the user the mailbox was created and refresh the page
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
 
     # Refresh the page
     redirect_back(fallback_location: root_path)
@@ -200,13 +200,13 @@ class EmailController < ApplicationController
 
     # Check if the current user is the same as the user who's email belongs to
     if user.id != current_user.id
-      flash[:error] = I18n.t 'unauthorized'
+      flash[:error] = I18n.t 'error.unauthorized'
       return redirect_to '/email/inbox'
     end
 
     # As we know de email exists and it belongs to the current user, we can now destroy it
     Email.delete(id)
-    flash[:notice] = I18n.t 'success'
+    flash[:notice] = I18n.t 'success.success'
     redirect_to '/email/inbox'
   end
 

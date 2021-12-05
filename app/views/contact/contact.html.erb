@@ -34,10 +34,10 @@
     <div class="card-body">
 
       <div class="mb-3">
-        <%= form.text_field :content, :required => true, class: "form-control", placeholder: (I18n.t 'contact_placeholder') %>
+        <%= form.text_field :content, :required => true, class: "form-control", placeholder: (I18n.t 'fields.contact_placeholder') %>
       </div>
 
-      <%= form.submit (I18n.t 'send'), class: "btn btn-primary" %>
+      <%= form.submit (I18n.t 'actions.send'), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

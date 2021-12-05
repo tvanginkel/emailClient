@@ -30,59 +30,76 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-
   # Empty messages
-  empty_subject: "The email needs a subject"
-  empty_inbox_name: "The inbox needs a name"
-  empty_password: "The password is empty"
-  empty_message: "You can't send an empty message"
+  empty:
+    subject: "The email needs a subject"
+    inbox_name: "The inbox needs a name"
+    password: "The password is empty"
+    message: "You can't send an empty message"
 
   # Invalid messages
-  invalid_password: "Invalid password"
-  invalid_email: "Invalid email"
+  invalid:
+    password: "Invalid password"
+    email: "Invalid email"
 
   # Not found messages
-  email_not_found: "The email was not found"
-  mailbox_not_found: "The mailbox was not found"
-  user_not_found: "The user was not found"
+  not_found:
+    email: "The email was not found"
+    mailbox: "The mailbox was not found"
+    user: "The user was not found"
 
   # Success messages
-  success: "Success"
-  successful_logout: "Log out was successful"
-  successful_account_delete: "Successfully deleted the account"
+  success:
+    success: "Success"
+    logout: "Log out was successful"
+    account_delete: "Successfully deleted the account"
 
   # Error messages
-  incorrect_credentials: "The email or password was incorrect"
-  email_already_exists: "This email address is already in use"
-  unexpected_error: "There was an unexpected error"
-  unauthorized: "You don't have access to this page"
+  error:
+    incorrect_credentials: "The email or password was incorrect"
+    email_already_exists: "This email address is already in use"
+    unexpected_error: "There was an unexpected error"
+    unauthorized: "You don't have access to this page"
 
-  # UI
-  email_field: "Email"
-  password_field: "Password"
-  new_password_field: "New password"
-  make_an_account: "Make an account"
-  create_account: "Create account"
-  already_have_an_account: "Already have an account? Log in"
-  contact_placeholder: "Tell us what's on your mind"
-  send: "Send"
-  delete: "Delete"
-  to: "To"
-  from: "From"
-  subject: "Subject"
-  content: "Content"
-  move_to: "Move to..."
-  previous: "Previous"
-  inbox: "Inbox"
-  send_email: "Send email"
-  profile: "Profile"
-  contact: "Contact"
-  log_out: "Log out"
-  change_password_message: "Change the password used to login into your account"
-  change_password_button: "Change password"
-  danger_zone: "Danger Zone!"
-  delete_account: "Delete account"
-  delete_account_message: "All the information related to your account will be deleted"
+  # Auth
+  auth:
+    new_password_field: "New password"
+    make_an_account: "Make an account"
+    create_account: "Create account"
+    already_have_an_account: "Already have an account? Log in"
+    change_password_message: "Change the password used to login into your account"
+    delete_account_message: "All the information related to your account will be deleted"
+    change_password_button: "Change password"
+    delete_account: "Delete account"
+    log_out: "Log out"
+    danger_zone: "Danger Zone!"
+
+  # Form fields
+  fields:
+    email_field: "Email"
+    password_field: "Password"
+    contact_placeholder: "Tell us what's on your mind"
+    to: "To"
+    from: "From"
+    subject: "Subject"
+    content: "Content"
+
+  #Buttons or other actions that don't fall in a specific category
+  actions:
+    send: "Send"
+    delete: "Delete"
+    move_to: "Move to..."
+    previous: "Previous"
+
+  #Sidebar tabs
+  tabs:
+    inbox: "Inbox"
+    profile: "Profile"
+    contact: "Contact"
+    send_email: "Send email"
+
+
+
 
 
 
