@@ -1,11 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   email: test1@gmail.com
-  password: "123"
+  password: $argon2id$v=19$m=65536,t=2,p=1$F/DxvMQiEKWnGlfpGhhvyw$qi8dw6yRyCzYvmSxqt9M/5xf4hXtWFHz01wbiVosarc
   sessionToken: MyString
 
 two:
+  id: 2
   email: test2@gmail.com
-  password: '123'
+  password: $argon2id$v=19$m=65536,t=2,p=1$F/DxvMQiEKWnGlfpGhhvyw$qi8dw6yRyCzYvmSxqt9M/5xf4hXtWFHz01wbiVosarc
+
   sessionToken: MyString

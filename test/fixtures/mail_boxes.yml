@@ -1,17 +1,26 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: Sent
   user_id: 1
 
 two:
+  id: 2
   name: Received
   user_id: 1
 
 three:
+  id: 3
   name: Sent
   user_id: 2
 
 four:
+  id: 4
   name: Received
   user_id: 2
+  
+five:
+  id: 5
+  name: Funny
+  user_id: 1

@@ -4,6 +4,7 @@
 class EmailController < ApplicationController
   before_action :require_login
 
+  # GET /email/view_email
   def view_email
     # Get the email from the db
     email = Email.find_by(id: params[:id])
@@ -19,7 +20,7 @@ class EmailController < ApplicationController
 
     # Check the user was found
     # This should never trigger as it is impossible to have and email without a user
-    if email.nil?
+    if user.nil?
       flash[:error] = I18n.t 'not_found.user'
       return redirect_back(fallback_location: root_path)
     end
@@ -34,6 +35,9 @@ class EmailController < ApplicationController
     @email = email
   end
 
+  # DELETE /email/remove_inbox
+  #
+  # Deletes an inbox of the user
   def remove_inbox
     mailbox = MailBox.where(user_id: current_user.id, name: params[:name])[0]
 
@@ -55,8 +59,11 @@ class EmailController < ApplicationController
   #
   # Change the mailbox an email of the current user belongs to
   def change_inbox
+    inbox_name = params[:name]
+    email_id = params[:email_id]
+
     # Find the email from the db
-    email = Email.find_by(id: params[:email_id])
+    email = Email.find_by(id: email_id)
 
     # Check the email exists
     if email.nil?
@@ -65,7 +72,7 @@ class EmailController < ApplicationController
     end
 
     # Find the mailbox the user wants to move the email to
-    mailbox = MailBox.where(user_id: current_user.id, name: params[:name])[0]
+    mailbox = MailBox.where(user_id: current_user.id, name: inbox_name)[0]
 
     # Check it exists
     if mailbox.nil?
@@ -106,6 +113,11 @@ class EmailController < ApplicationController
 
     # Get the user the email is intended for
     user_to = User.find_by_email(to)
+
+    if subject.nil? || subject == ''
+      flash[:error] = I18n.t 'empty.subject'
+      return redirect_back(fallback_location: root_path)
+    end
 
     # Check if the user the email is being sent to exists
     if user_to.nil?
@@ -198,6 +210,11 @@ class EmailController < ApplicationController
 
     user = helpers.get_user_from_email(id)
 
+    if user.nil?
+      flash[:error] = I18n.t 'not_found.email'
+      return redirect_to '/email/inbox'
+    end
+
     # Check if the current user is the same as the user who's email belongs to
     if user.id != current_user.id
       flash[:error] = I18n.t 'error.unauthorized'
@@ -222,5 +239,4 @@ class EmailController < ApplicationController
     # These are all the values that are whitelisted
     params.permit(:name, :authenticity_token, :commit)
   end
-
 end

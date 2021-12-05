@@ -55,8 +55,8 @@
 </head>
 
 <body>
+<%= render partial: 'partials/sidebar', :locals => { :page => 'inbox' } %>
 
-<%= render 'partials/sidebar' %>
 <a onclick="goBack()" class="back-button">&laquo; <%= I18n.t 'actions.previous' %></a>
 <div class="card">
   <div class="card-body">

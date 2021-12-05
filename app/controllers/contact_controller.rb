@@ -3,6 +3,8 @@ class ContactController < ApplicationController
 
   def contact; end
 
+  # POST /contact/contact
+  #
   # Use a contact_mailer to send the contact info to and email
   def send_contact
     content = params[:content]
@@ -10,13 +12,13 @@ class ContactController < ApplicationController
     phone = params[:phone]
     email = current_user.email
 
-    if content == ''
-      flash[:notice] = I18n.t 'empty.message'
+    if content.nil? || content == ''
+      flash[:error] = I18n.t 'empty.message'
       return redirect_back(fallback_location: root_path)
     end
 
-    if name == ''
-      flash[:notice] = I18n.t 'empty.name'
+    if name.nil? || name == ''
+      flash[:error] = I18n.t 'empty.name'
       return redirect_back(fallback_location: root_path)
     end
 

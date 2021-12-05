@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'email/inbox'
   post 'email/inbox', to: 'email#create_inbox'
   post 'email/change_inbox'
-  post 'email/remove_inbox'
+  delete 'email/remove_inbox'
   get 'email/new_email'
   post 'email/new_email', to: 'email#create_email'
   get 'email/delete_email'
