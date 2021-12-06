@@ -65,11 +65,11 @@
   </div>
 </div>
 
-<!-- Code for the add inbox selection modal-->
+<!-- Code for the change email inbox selection modal-->
 <div id="mailbox_modal" class="modal">
   <div class="modal-content">
     <button class="btn-close btn-close-white" aria-label="Close" , onclick="close_selection_modal()"></button>
-    <%= form_with :url => '/email/change_inbox', :method => :post do |form| %>
+    <%= form_with :url => '/email/change_inbox', :method => :patch do |form| %>
       <%= hidden_field_tag 'email_id', value = 'no val' %>
       <%= select_tag :name, options_for_select(get_mailboxes), class: "form-select" %>
       <br>
@@ -82,7 +82,7 @@
 <div id="mailbox_remove_modal" class="modal">
   <div class="modal-content">
     <button class="btn-close btn-close-white" aria-label="Close" , onclick="close_remove_mailbox()"></button>
-    <%= form_with :url => '/email/remove_inbox', :method => :post do |form| %>
+    <%= form_with :url => '/email/remove_inbox', :method => :delete do |form| %>
       <%= select_tag :name, options_for_select(get_mailboxes), class: "form-select" %>
       <br>
       <%= form.submit "Remove", class: "btn btn-primary", style: "background-color:red;border:red;" %>

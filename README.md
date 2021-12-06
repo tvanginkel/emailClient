@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux]
 
-Things you may want to cover:
+* Rails version: Rails 6.1.4.1
 
-* Ruby version
+* Git commits are in the commits.txt file
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Git repository (using my personal github account): https://github.com/tvanginkel/emailClient

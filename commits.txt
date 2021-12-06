@@ -1,0 +1,149 @@
+commit c8df5293d314243b16747c42d1765e959856e425
+Author: toni <tginkel1@gmail.com>
+Date:   Mon Dec 6 18:24:59 2021 +0000
+
+    Changed some routes from post to patch
+
+commit 570c7c27ec2ec0a01349d22182affc835baa8d59
+Author: toni <tginkel1@gmail.com>
+Date:   Mon Dec 6 13:38:02 2021 +0000
+
+    Extracted style code in views to scss fiels
+
+commit 570c4110c64f275e7758865e470fb9eab9bb4bc1
+Author: toni <tginkel1@gmail.com>
+Date:   Mon Dec 6 12:29:19 2021 +0000
+
+    Created mail testing and view testing
+
+commit 4f54fc9c5a5d169dd2884c8b84c05b4ba2d7fb5e
+Author: toni <tginkel1@gmail.com>
+Date:   Sun Dec 5 19:58:29 2021 +0000
+
+    Made test for all the controllers
+
+commit 81aac5098ffdb2c8768fecab7b5c983960edb3c3
+Author: toni <tginkel1@gmail.com>
+Date:   Sun Dec 5 17:42:11 2021 +0000
+
+    Made tests for auth controller
+
+commit 27866810b38c9ad91a5891cee1b084d8bfa97060
+Author: toni <tginkel1@gmail.com>
+Date:   Sun Dec 5 16:11:53 2021 +0000
+
+    Refactored localised strings into groups
+
+commit 77c514f127d6784cfea22d29a300ff6736bb5350
+Author: toni <tginkel1@gmail.com>
+Date:   Sat Dec 4 22:56:11 2021 +0000
+
+    Made test for change password
+
+commit 5848a70a4c08849401375d6df7f7ed19b6f883f8
+Author: toni <tginkel1@gmail.com>
+Date:   Fri Dec 3 16:41:35 2021 +0000
+
+    Localised all the strings in the html files
+
+commit 3c2f1b263ffec8d3f41c2e432de27ebff596b486
+Author: toni <tginkel1@gmail.com>
+Date:   Fri Dec 3 16:22:41 2021 +0000
+
+    Moved style tags to head
+
+commit b3e358553656fe13e99ea767b946e21a5c0b0e68
+Author: toni <tginkel1@gmail.com>
+Date:   Fri Dec 3 14:56:27 2021 +0000
+
+    Improved view_email UI
+
+commit 62d44bce8e9f6a13486de32d5f9c3806cd8fa059
+Author: toni <tginkel1@gmail.com>
+Date:   Thu Dec 2 19:59:16 2021 +0000
+
+    Made menu clickable over email
+
+commit 4fcaba70b983f03c595c4175543d59f5860cef61
+Author: toni <tginkel1@gmail.com>
+Date:   Thu Dec 2 19:20:51 2021 +0000
+
+    Created view emails page
+
+commit bee4444ebab82ad692549292841ab84a155a3156
+Author: toni <tginkel1@gmail.com>
+Date:   Thu Dec 2 16:24:00 2021 +0000
+
+    Move emails to another mailbox done
+
+commit 656fb7096868735b763fd5d3fa7fc186dc66758a
+Author: toni <tginkel1@gmail.com>
+Date:   Wed Dec 1 15:33:32 2021 +0000
+
+    Created delete account in profile page
+
+commit 2548da1b41087e484651f8de6680fdca504d8ba9
+Author: toni <tginkel1@gmail.com>
+Date:   Wed Dec 1 11:47:50 2021 +0000
+
+    Localised strings
+
+commit d5d8fdf8f657d5b2a88e0e40378620d91110dee5
+Author: toni <tginkel1@gmail.com>
+Date:   Wed Dec 1 11:15:30 2021 +0000
+
+    Added validation to models
+
+commit a466ae8e8335dd613e52e5f6383f43c1b4bb958b
+Author: toni <tginkel1@gmail.com>
+Date:   Wed Dec 1 10:05:02 2021 +0000
+
+    Changed small details to make UI look better
+
+commit b163c535df5f24e11c5d45040ae95f5d8012331e
+Author: toni <tginkel1@gmail.com>
+Date:   Tue Nov 30 17:13:19 2021 +0000
+
+    Added delete emails functionality
+
+commit 1e46169ed81cd8a24c9d5f0998705d28416f7e71
+Author: toni <tginkel1@gmail.com>
+Date:   Tue Nov 30 15:28:54 2021 +0000
+
+    Added dropdown menu to emails
+
+commit 1859fd260d529202df2c763d028bb6ec9d97b2ad
+Author: toni <tginkel1@gmail.com>
+Date:   Mon Nov 29 16:59:02 2021 +0000
+
+    Added change password functionality
+
+commit 05698971b8123b7bb6b66f9b5fe1c97cf73946dc
+Author: toni <tginkel1@gmail.com>
+Date:   Mon Nov 29 16:46:51 2021 +0000
+
+    Refactored code and created profile controller
+
+commit bdad4c58fe41e1d6fd68ffd292274ec9b0f9a896
+Author: toni <tginkel1@gmail.com>
+Date:   Sat Nov 27 15:34:02 2021 +0000
+
+    Added send email and list emails in inbox
+
+commit 8495dd64fcdf420b3ed448ecfa2ed12da4596427
+Author: toni <tginkel1@gmail.com>
+Date:   Fri Nov 26 17:53:03 2021 +0000
+
+    Added mailboxes and inbox UI, created email model
+
+commit be40b6f98dc4c57b89fc4d477c1c5ae74b5cd4df
+Author: toni <tginkel1@gmail.com>
+Date:   Thu Nov 25 18:35:50 2021 +0000
+
+    Added password hashing and flash messages
+
+commit 7c02dd31b689fff46fa78a15d03116fd365d1116
+Author: toni <tginkel1@gmail.com>
+Date:   Wed Nov 24 22:03:54 2021 +0000
+
+    Created users and added login and register functionality
