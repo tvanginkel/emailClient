@@ -1,13 +1,16 @@
 <html>
 
 <head>
-  <%= stylesheet_link_tag "application.css" %>
+  <%= stylesheet_link_tag "inbox.css" %>
+  <%= stylesheet_link_tag "home_body.css" %>
+
 </head>
 
 <body>
 <%= render partial: 'partials/sidebar', :locals => { :page => 'inbox' } %>
 
 <h1 style="text-align: center">Inbox</h1>
+
 <!-- Code for the tabs-->
 <div class="tab">
   <% @mailboxes.each do |mailbox| %>
@@ -86,10 +89,10 @@
     <% end %>
   </div>
 </div>
-<script>
 
+<script>
     /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
+  toggle between hiding and showing the dropdown content */
     function myFunction(id) {
         document.getElementById(id).classList.toggle("show");
     }
@@ -167,6 +170,7 @@
         document.getElementById(element).style.display = "block";
         evt.currentTarget.className += " active";
     }
+
 </script>
 </body>
 </html>

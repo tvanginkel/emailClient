@@ -5,7 +5,7 @@ class ContactMailerTest < ActionMailer::TestCase
     # Create the email
     email = ContactMailer.contact_email('This is the message', users(:one).email, 'Toni van Ginkel', '012345678')
 
-    # Test if the email was sent
+    # Send the email and test if it was queued
     assert_emails 1 do
       email.deliver_now
     end

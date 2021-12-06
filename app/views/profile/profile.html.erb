@@ -1,24 +1,10 @@
 <html>
 <head>
-
   <style>
-
       .bottom hr {
           color: red;
           border-top: 5px solid;
           margin-bottom: 40px;
-      }
-
-      body {
-          background-color: #242424;
-          /* Add this padding so the content of the page does not overlap with the sidebar partial*/
-          padding-left: 160px;
-
-          padding-top: 20px;
-      }
-
-      label {
-          color: white;
       }
 
       #delete-btn {
@@ -33,26 +19,17 @@
           right: 0;
           left: 160px;
       }
-
-      .card {
-          background-color: #242424;
-          border-color: #121212;
-          margin-left: 10px;
-          margin-right: 10px;
-
-      }
-
-      .form-control {
-          margin-top: 0;
-      }
-
   </style>
+
+  <%= stylesheet_link_tag "card.css" %>
+  <%= stylesheet_link_tag "home_body.css" %>
 </head>
 <body>
 <%= render partial: 'partials/sidebar', :locals => { :page => 'profile' } %>
 
 <h1 style="text-align: center">Profile</h1>
 
+<!-- Form for changing password -->
 <%= form_with do |form| %>
   <div class="card">
     <div class="card-body">
@@ -66,13 +43,13 @@
   </div>
 <% end %>
 
+<!-- Form for deleting account -->
 <%= form_with :method => :delete do |form| %>
   <div class="bottom">
     <div style="text-align: center;"><p style="color: red"><%= I18n.t 'auth.danger_zone' %></p></div>
     <hr>
     <div class="card">
       <div class="card-body">
-
         <p><b><%= I18n.t 'auth.delete_account' %></b></p>
         <p><%= I18n.t 'auth.delete_account_message' %></p>
         <%= form.submit (I18n.t 'auth.delete_account'), class: "btn btn-primary", id: "delete-btn" %>
@@ -80,5 +57,6 @@
     </div>
   </div>
 <% end %>
+
 </body>
 </html>

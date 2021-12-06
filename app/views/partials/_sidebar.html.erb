@@ -1,67 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <style>
-      body {
-          font-family: "Lato", sans-serif;
-      }
-
-      @media screen and (max-height: 450px) {
-          .sidenav {
-              padding-top: 15px;
-          }
-
-          .sidenav a {
-              font-size: 18px;
-          }
-      }
-
-      .sidenav {
-          display: table-cell;
-          height: 100%;
-          width: 160px;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-color: #121212;
-          overflow-x: visible;
-          padding-top: 20px;
-          vertical-align: bottom;
-      }
-
-      .sidenav a {
-          padding: 6px 8px 6px 16px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-      }
-
-      .sidenav a:hover {
-          color: #f1f1f1;
-      }
-
-      .bott {
-          position: absolute;
-          bottom: 0;
-          width: 160px;
-          padding-bottom: 30px;
-      }
-
-      hr {
-          color: white;
-      }
-
-      .sidenav .active {
-          color: white;
-      }
-
-  </style>
-
+  <%= stylesheet_link_tag "sidenav.css" %>
 </head>
 <body>
 
+<!-- Sidebar -->
 <div class="sidenav">
   <a href="/email/inbox" onclick="select('inbox')" id="inbox"><%= I18n.t 'tabs.inbox' %></a>
   <a href="/email/new_email" onclick="select('new_email')" id="new_email"><%= I18n.t 'tabs.send_email' %></a>

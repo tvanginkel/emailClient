@@ -1,34 +1,10 @@
 <html>
 <head>
-  <style>
-
-      label {
-          color: white;
-      }
-
-      .center {
-          border-radius: 15px;
-          padding: 50px;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background-color: #121212;
-          text-align: center;
-      }
-
-      h1 {
-          color: #CCCCCC;
-      }
-
-      body {
-          background-color: cornflowerblue;
-      }
-  </style>
-
+  <%= stylesheet_link_tag "auth.css" %>
 </head>
 <body>
 
+<!-- Form to register an account -->
 <div class="center">
   <h1> <%= I18n.t 'auth.make_an_account' %></h1>
   <br>
@@ -44,7 +20,6 @@
 
   <a href="/auth/login"><%= I18n.t 'auth.already_have_an_account' %></a>
 </div>
-
 
 </body>
 </html>

@@ -1,24 +1,6 @@
 <html>
 <head>
   <style>
-      body {
-          background-color: #242424
-      }
-
-      .card {
-          background-color: white;
-          border-color: white;
-          margin-left: 10px;
-          margin-right: 10px;
-          top: 10px;
-          padding: 0;
-      }
-
-      .card-body {
-          top: 0;
-          margin: 0;
-      }
-
       .card p {
           color: #121212;
       }
@@ -52,12 +34,16 @@
       }
 
   </style>
+  <%= stylesheet_link_tag "home_body.css" %>
 </head>
 
 <body>
 <%= render partial: 'partials/sidebar', :locals => { :page => 'inbox' } %>
 
+<!-- Back button -->
 <a onclick="goBack()" class="back-button">&laquo; <%= I18n.t 'actions.previous' %></a>
+
+<!-- Email view -->
 <div class="card">
   <div class="card-body">
     <h1><b><%= I18n.t 'fields.from' %>:</b> <%= @email.from %></h1>
