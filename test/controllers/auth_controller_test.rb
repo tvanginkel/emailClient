@@ -2,13 +2,19 @@ require 'test_helper'
 
 class AuthControllerTest < ActionDispatch::IntegrationTest
   test 'should get login page' do
+    # Get the log in page
     get auth_login_url
+
     assert_response :success
+    assert_select 'h1', 'Log in'
   end
 
   test 'should get register page' do
+    # Get the register page
     get auth_register_url
+
     assert_response :success
+    assert_select 'h1', 'Make an account'
   end
 
   test 'should create account' do
@@ -28,7 +34,6 @@ class AuthControllerTest < ActionDispatch::IntegrationTest
     post auth_login_url, params: { email: 'test@gmail.com', password: '123' }
 
     # Test that we get the correct response
-    assert_response :redirect
     assert_nil flash[:error]
     assert_redirected_to root_path
   end

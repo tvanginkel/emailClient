@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_11_26_175116) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "password", default: "", null: false
-    t.string "sessionToken"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

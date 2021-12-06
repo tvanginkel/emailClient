@@ -4,7 +4,7 @@ class ProfileControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     # Login to an account
-    post auth_login_url, params: { email: users(:one).email, password: "123" }
+    post auth_login_url, params: { email: users(:one).email, password: '123' }
 
     # Test that we get the correct response
     assert_response :redirect
@@ -12,27 +12,24 @@ class ProfileControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get profile' do
-    # TODO: add more tests
     get profile_profile_url
+
     assert_response :success
+    assert_select 'h1', 'Profile'
   end
 
   test 'should change password' do
-
     # Change the password
     post profile_profile_url, params: { password: 'password' }
 
     # Test if we get the correct response
     assert_response :redirect
-    assert_nil flash[:error]
-    assert_not_nil flash[:notice]
+    assert_equal (I18n.t 'success.success'), flash[:notice]
 
     # Try to login with the new password
     post auth_login_url, params: { email: 'toni@gmail.com', password: 'password' }
 
-    assert_response :redirect
-    assert_nil flash[:error]
-    assert_not_nil flash[:notice]
+    assert_equal (I18n.t 'error.incorrect_credentials'), flash[:error]
   end
 
   test 'delete account' do

@@ -33,12 +33,10 @@
   <h1> <%= I18n.t 'auth.make_an_account' %></h1>
   <br>
   <%= form_with do |form| %>
-    <%= form.label :email, "Email:" %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, placeholder: (I18n.t 'fields.email_field'), :required => true %>
     <br>
     <br>
-    <%= form.label :password, (I18n.t 'fields.password_field') %>
-    <%= form.text_field :password %>
+    <%= form.password_field :password, placeholder: (I18n.t 'fields.password_field'), :required => true %>
     <br>
     <br>
     <%= form.submit (I18n.t 'auth.create_account') %>

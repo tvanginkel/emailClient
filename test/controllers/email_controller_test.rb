@@ -123,6 +123,7 @@ class EmailControllerTest < ActionDispatch::IntegrationTest
 
     # Test if the response was success
     assert_response :success
+    assert_select 'h1', 'Inbox'
   end
 
   test 'should create inbox' do
