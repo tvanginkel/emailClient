@@ -30,7 +30,7 @@
 <h1 style="text-align: center">Profile</h1>
 
 <!-- Form for changing password -->
-<%= form_with do |form| %>
+<%= form_with :method => :patch do |form| %>
   <div class="card">
     <div class="card-body">
       <p><%= I18n.t 'auth.change_password_message' %></p>

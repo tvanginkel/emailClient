@@ -64,7 +64,7 @@ class EmailControllerTest < ActionDispatch::IntegrationTest
 
   test 'should change mailbox email is in' do
     # Move an email of the user to the 'funny' mailbox
-    post email_change_inbox_url, params: { email_id: emails(:one).id, name: mail_boxes(:five).name }
+    patch email_change_inbox_url, params: { email_id: emails(:one).id, name: mail_boxes(:five).name }
 
     # Check if the response is a success
     assert_equal (I18n.t 'success.success'), flash[:notice]
@@ -72,7 +72,7 @@ class EmailControllerTest < ActionDispatch::IntegrationTest
 
   test 'should throw mailbox not found error trying to move email' do
     # Move an email of the user to the 'funny' mailbox
-    post email_change_inbox_url, params: { email_id: emails(:one).id, name: 'Testing' }
+    patch email_change_inbox_url, params: { email_id: emails(:one).id, name: 'Testing' }
 
     # Check if the response is a success
     assert_equal (I18n.t 'not_found.mailbox'), flash[:error]

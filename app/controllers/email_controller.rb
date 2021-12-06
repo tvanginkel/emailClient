@@ -55,7 +55,7 @@ class EmailController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  # POST /email/change_inbox
+  # PATCH /email/change_inbox
   #
   # Change the mailbox an email of the current user belongs to
   def change_inbox

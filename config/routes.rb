@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Email routes
   get 'email/inbox'
   post 'email/inbox', to: 'email#create_inbox'
-  post 'email/change_inbox'
+  patch 'email/change_inbox'
   delete 'email/remove_inbox'
   get 'email/new_email'
   post 'email/new_email', to: 'email#create_email'
@@ -26,6 +26,6 @@ Rails.application.routes.draw do
 
   # Profile routes
   get 'profile/profile'
-  post 'profile/profile', to: 'profile#change_password'
+  patch 'profile/profile', to: 'profile#change_password'
   delete 'profile/profile', to: 'profile#delete_account'
 end

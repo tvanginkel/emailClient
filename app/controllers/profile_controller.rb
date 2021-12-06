@@ -18,7 +18,7 @@ class ProfileController < ApplicationController
   # GET /profile/profile
   def profile; end
 
-  # POST /profile/profile
+  # PATCH /profile/profile
   #
   # Updates the password of the current user
   def change_password

@@ -20,7 +20,7 @@ class ProfileControllerTest < ActionDispatch::IntegrationTest
 
   test 'should change password' do
     # Change the password
-    post profile_profile_url, params: { password: 'password' }
+    patch profile_profile_url, params: { password: 'password' }
 
     # Test if we get the correct response
     assert_response :redirect

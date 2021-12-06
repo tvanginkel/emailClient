@@ -92,7 +92,7 @@
 
 <script>
     /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
+        toggle between hiding and showing the dropdown content */
     function myFunction(id) {
         document.getElementById(id).classList.toggle("show");
     }
@@ -111,6 +111,7 @@
         }
     }
 
+    // Open the modal for moving an email to another mailbox
     function open_selection_modal(id) {
         document.getElementById("mailbox_modal").classList.toggle("show")
         document.getElementById("email_id").value = id
@@ -144,6 +145,7 @@
         modal.classList.toggle("show")
     }
 
+    // Show the modal for deleting a mailbox
     function removeInbox() {
         document.getElementById("mailbox_remove_modal").classList.toggle("show");
     }
@@ -155,8 +157,10 @@
         }
     }
 
+    //Select one of the mailboxes by default at the start
     document.getElementById("default-open").click();
 
+    // Show the content of a mailbox when clicked and set it as active
     function selectTab(evt, element) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
